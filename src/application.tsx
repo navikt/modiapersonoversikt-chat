@@ -14,7 +14,7 @@ export function isPersontab(tab: Tab): tab is PersonTab {
 }
 
 function Application() {
-    const [tabs, setTabs] = useState<Array<Tab>>(['DASHBOARD', { fnr: '10108000398' }]);
+    const [tabs] = useState<Array<Tab>>(['DASHBOARD', { fnr: '10108000398' }]);
     const [tabIndex, setTabIndex] = useState<number>(0);
 
     const tabselector = tabs.map((tab, i) => ({

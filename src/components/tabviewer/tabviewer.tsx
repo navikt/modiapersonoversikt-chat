@@ -51,7 +51,7 @@ function TabViewer(props: Props) {
             if (isPersontab(tab)) {
                 return (
                     <div key={tab.fnr} className={['persontab', isInactive ? 'inactivetab' : ''].join(' ')} aria-hidden={isInactive}>
-                        <iframe src={`https://navikt.github.io/modiapersonoversikt/#/person/${tab.fnr}?chatvisning`} />
+                        <iframe title={tab.fnr} src={`https://navikt.github.io/modiapersonoversikt/#/person/${tab.fnr}?chatvisning`} />
                         <div className="persontab__chat">
                             <ChatWindow />
                         </div>
