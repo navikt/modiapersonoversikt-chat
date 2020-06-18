@@ -17,6 +17,7 @@
     "@types/react-dom": "^16.9.0",
     "classnames": "^2.2.6",
     "lodash.throttle": "^4.1.1",
+    "nav-faker": "^3.2.1",
     "nav-frontend-core": "^5.0.1",
     "nav-frontend-js-utils": "^1.0.8",
     "nav-frontend-knapper": "^2.0.4",
@@ -29,6 +30,8 @@
     "nav-frontend-skjema-style": "^2.0.9",
     "nav-frontend-snakkeboble": "^2.0.5",
     "nav-frontend-snakkeboble-style": "^0.2.28",
+    "nav-frontend-spinner": "^2.0.2",
+    "nav-frontend-spinner-style": "^0.2.5",
     "nav-frontend-tabs": "0.0.41",
     "nav-frontend-tabs-style": "0.0.27",
     "nav-frontend-typografi": "^2.0.21",
@@ -64,6 +67,7 @@
     "@craco/craco": "^5.6.4",
     "@navikt/fnrvalidator": "^1.1.2",
     "craco-less": "^1.17.0",
+    "nav-frontend-ikoner-assets": "^2.0.1",
     "nav-frontend-typografi-style": "^1.0.22"
   }
 }
