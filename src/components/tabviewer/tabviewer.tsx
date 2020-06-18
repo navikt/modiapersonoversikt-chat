@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Panel from "nav-frontend-paneler";
 import Snakkeboble from "nav-frontend-snakkeboble";
-import {Textarea, TextareaControlled} from "nav-frontend-skjema";
+import {Textarea} from "nav-frontend-skjema";
 import Spinner from "nav-frontend-spinner";
 import { Flatknapp } from 'nav-frontend-knapper';
 import {isPersontab, Tab} from "../../application";
@@ -9,7 +9,7 @@ import './tabviewer.less';
 import {Ingress, Undertittel} from "nav-frontend-typografi";
 import {Dispatch, useState} from "react";
 import {SetStateAction} from "react";
-import useFetch, { isPending, hasError, hasData } from "@nutgaard/use-fetch";
+import useFetch, { isPending, hasError } from "@nutgaard/use-fetch";
 
 interface Props {
     tabs: Array<Tab>;
