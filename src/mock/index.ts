@@ -2,7 +2,9 @@ import FetchMock, {MiddlewareUtils} from 'yet-another-fetch-mock';
 import {setupWsControlAndMock} from './context-mock';
 import navfaker from "nav-faker";
 
-
+console.log('=========================='); // tslint:disable-line
+console.log('======== MED MOCK ========'); // tslint:disable-line
+console.log('=========================='); // tslint:disable-line
 const mock = FetchMock.configure({
     middleware: MiddlewareUtils.combine(
         MiddlewareUtils.loggingMiddleware()
