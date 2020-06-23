@@ -54,16 +54,18 @@ function KoBoks(props: { temagruppe: string } & Props) {
 
 function ChatWindow(props: { fnr: string }) {
     const [text, setText] = useState('');
+
     const chat = useFetch<Array<Melding>>(`/modiapersonoversikt-chat/api/chat/${props.fnr}`);
-            if (isPending(chat)) {
-                return <Spinner />
-            } else if (hasError(chat)) {
-                return <p>Beklager, kunne ikke laste inn chat.</p>
-            }
+    if (isPending(chat)) {
+        return <Spinner />
+    } else if (hasError(chat)) {
+        return <p>Beklager, kunne ikke laste inn chat.</p>
+    }
+
 
     const snakkebobler = chat.data
         .map((melding, i) => (
-            <Snakkeboble dato={melding.chatDato} key={i} pilHoyre={melding.from === 'nav'}>{melding.content}</Snakkeboble>
+            <Snakkeboble topp={melding.chatDato} key={i} pilHoyre={melding.from === 'nav'}>{melding.content}</Snakkeboble>
         ));
 
     return (
