@@ -18,6 +18,12 @@ interface Props {
     setTabIndex: Dispatch<SetStateAction<number>>;
 }
 
+interface Melding {
+    from: string;
+    content: string;
+    chatDato: string;
+}
+
 function apneChat(props: Props) {
     return () => {
         fetch('/modiapersonoversikt-chat/api/plukk')
@@ -47,17 +53,17 @@ function KoBoks(props: { temagruppe: string } & Props) {
 }
 
 function ChatWindow(props: { fnr: string }) {
-    const chat = useFetch<Array<{ from: string; content: string; }>>(`/modiapersonoversikt-chat/api/chat/${props.fnr}`);
     const [text, setText] = useState('');
-    if (isPending(chat)) {
-        return <Spinner />
-    } else if (hasError(chat)) {
-        return <p>Beklager, kunne ikke laste inn chat.</p>
-    }
+    const chat = useFetch<Array<Melding>>(`/modiapersonoversikt-chat/api/chat/${props.fnr}`);
+            if (isPending(chat)) {
+                return <Spinner />
+            } else if (hasError(chat)) {
+                return <p>Beklager, kunne ikke laste inn chat.</p>
+            }
 
     const snakkebobler = chat.data
         .map((melding, i) => (
-            <Snakkeboble key={i} pilHoyre={melding.from === 'nav'}>{melding.content}</Snakkeboble>
+            <Snakkeboble dato={melding.chatDato} key={i} pilHoyre={melding.from === 'nav'}>{melding.content}</Snakkeboble>
         ));
 
     return (

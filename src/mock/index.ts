@@ -34,8 +34,8 @@ const chatContent: any = {};
 mock.get('/modiapersonoversikt-chat/api/plukk', (req, res, ctx) => {
     const fnr = navfaker.personIdentifikator.fødselsnummer();
     chatContent[fnr] = [
-        { from: 'user', content: navfaker.random.arrayElement(starters) },
-        { from: 'user', content: navfaker.random.arrayElement(followups) }
+        { from: 'user', content: navfaker.random.arrayElement(starters), chatDato:  new Date().toLocaleString() },
+        { from: 'user', content: navfaker.random.arrayElement(followups),chatDato: new Date().toLocaleString() }
     ];
 
     return res(ctx.json({ fnr }));
@@ -48,8 +48,8 @@ mock.get('/modiapersonoversikt-chat/api/chat/:fnr', (req, res, ctx) => res(
 
 mock.post('/modiapersonoversikt-chat/api/chat/:fnr/send', (req, res, ctx) => {
     const content = chatContent[req.pathParams.fnr] || [];
-    content.push({ from: 'nav', content: req.body });
-    content.push({ from: 'user', content: navfaker.random.arrayElement(ekstra) });
+    content.push({ from: 'nav', content: req.body, chatDato:  new Date().toLocaleString() });
+    content.push({ from: 'user', content: navfaker.random.arrayElement(ekstra), chatDato:  new Date().toLocaleString() });
     chatContent[req.pathParams.fnr] = content;
 
     return res(
