@@ -46,6 +46,10 @@ mock.get('/modiapersonoversikt-chat/api/chat/:fnr', (req, res, ctx) => res(
     ctx.json(chatContent[req.pathParams.fnr])
 ));
 
+mock.get('/journalforing', (req, res, ctx) => res(
+    ctx.json(true)
+));
+
 mock.post('/modiapersonoversikt-chat/api/chat/:fnr/send', (req, res, ctx) => {
     const content = chatContent[req.pathParams.fnr] || [];
     content.push({ from: 'nav', content: req.body, chatDato:  new Date().toLocaleString() });
