@@ -3,7 +3,6 @@ import {Flatknapp, Hovedknapp} from "nav-frontend-knapper";
 import Modal from "nav-frontend-modal";
 import  { AlertStripeInfo } from "nav-frontend-alertstriper";
 import './journalforing.less';
-
 import * as React from "react";
 import {CheckboksPanelGruppe} from "nav-frontend-skjema";
 import {Normaltekst, Ingress} from "nav-frontend-typografi";
