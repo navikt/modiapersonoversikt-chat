@@ -7214,6 +7214,16 @@ nav-frontend-core@^5.0.1:
   resolved "https://registry.yarnpkg.com/nav-frontend-core/-/nav-frontend-core-5.0.1.tgz#f59d79da9342434cc89046bc289c90e2a5d53ea8"
   integrity sha512-wPcKfXcXvmqA3MPQwlU+nMvB3plJtxLBew4bNmcw5CJNIMtGPwGXEvcexVEIeEdCpJCvOZvwcWxaTc57x16eDA==
 
+nav-frontend-ekspanderbartpanel-style@^1.0.19:
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/nav-frontend-ekspanderbartpanel-style/-/nav-frontend-ekspanderbartpanel-style-1.0.19.tgz#e336ffdfdbb829808c79f36bf004f869aeb31a2b"
+  integrity sha512-3QOwwWHOv9gqvtLK22j8WfSCrXfgG9snJIc6DBoGpCBxsVJpbZttQ0pAFRyLwA5ejPM/KPGq/MfIFSiCkv2mdA==
+
+nav-frontend-ekspanderbartpanel@^3.0.19:
+  version "3.0.19"
+  resolved "https://registry.yarnpkg.com/nav-frontend-ekspanderbartpanel/-/nav-frontend-ekspanderbartpanel-3.0.19.tgz#96e7bee88518df0804508bb67c8009c6c5d6acf5"
+  integrity sha512-aUPSwvZ7KobFAsLqpq3oFaPKOAHvNg9IpreM5UQ/zaHdDBbl+WvoENCUCp+paC1hA3BnDS2jKJGptquJoCFLgQ==
+
 nav-frontend-ikoner-assets@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/nav-frontend-ikoner-assets/-/nav-frontend-ikoner-assets-2.0.1.tgz#82060b7f4f67255eeca55d6823b04a565ba53f3c"
@@ -8997,6 +9007,11 @@ react-app-polyfill@^1.0.6:
     raf "^3.4.1"
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
+
+react-collapse@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/react-collapse/-/react-collapse-5.0.1.tgz#f763b7207aee73baa1ff778b2d0b4ffb49d900a0"
+  integrity sha512-cN2tkxBWizhPQ2JHfe0aUSJtmMthKA17NZkTElpiQ2snQAAi1hssXZ2fv88rAPNNvG5ss4t0PbOZT0TIl9Lk3Q==
 
 react-dev-utils@^10.2.1:
   version "10.2.1"

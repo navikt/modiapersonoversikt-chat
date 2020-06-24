@@ -10,8 +10,7 @@ import {Ingress, Undertittel} from "nav-frontend-typografi";
 import {Dispatch, useState} from "react";
 import {SetStateAction} from "react";
 import useFetch, { isPending, hasError } from "@nutgaard/use-fetch";
-import Modal from 'nav-frontend-modal';
-import AlertStripe from "nav-frontend-alertstriper";
+import {Journalfor} from "../journalforing/journalforing";
 
 interface Props {
     tabs: Array<Tab>;
@@ -54,32 +53,7 @@ function KoBoks(props: { temagruppe: string } & Props) {
     );
 }
 
-function Journalfor() {
-    const [apenModal, setApenModal] = useState(false);
 
-    const submit = () => {
-        setApenModal(!apenModal);
-        return fetch(`/journalforing`, {
-            method: 'POST',
-        });
-    }
-
-    return(
-        <div className={"journalforingspanel"}>
-            <Flatknapp style={{width:'100%'}} onClick={() => submit()} >Journalfør chat</Flatknapp>
-                <Modal
-                    isOpen={apenModal}
-                    onRequestClose={() => setApenModal(!apenModal)}
-                    closeButton={true}
-                    contentLabel="Journalføring"
-                >
-                    <div style={{padding:'2rem 2.5rem'}}>
-                        <AlertStripe  type="suksess">Chatten ble journalført</AlertStripe>
-                    </div>
-                </Modal>
-        </div>
-    )
-}
 
 function ChatWindow(props: { fnr: string }) {
     const [text, setText] = useState('');
