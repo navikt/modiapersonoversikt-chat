@@ -63,19 +63,19 @@ function Journalfor() {
             method: 'POST',
         });
     }
-    
+
     return(
         <div className={"journalforingspanel"}>
             <Flatknapp style={{width:'100%'}} onClick={() => submit()} >Journalfør chat</Flatknapp>
-            <Modal
-                isOpen={apenModal}
-                onRequestClose={() => setApenModal(!apenModal)}
-                closeButton={true}
-                contentLabel="Journalføring"
-            >
-                <div style={{padding:'2rem 2.5rem'}}>
-                <AlertStripe  type="suksess">Chatten ble journalført</AlertStripe>
-                </div>
+                <Modal
+                    isOpen={apenModal}
+                    onRequestClose={() => setApenModal(!apenModal)}
+                    closeButton={true}
+                    contentLabel="Journalføring"
+                >
+                    <div style={{padding:'2rem 2.5rem'}}>
+                        <AlertStripe  type="suksess">Chatten ble journalført</AlertStripe>
+                    </div>
                 </Modal>
         </div>
     )
