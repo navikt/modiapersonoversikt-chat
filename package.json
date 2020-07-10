@@ -7,6 +7,7 @@
     "@navikt/navspa": "^1.0.3",
     "@nutgaard/use-fetch": "^2.3.1",
     "@nutgaard/use-formstate": "^2.3.0",
+    "@reduxjs/toolkit": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -38,8 +39,9 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
     "react-scripts": "3.4.1",
-    "typescript": "~3.7.2",
+    "typescript": "^3.9.6",
     "yet-another-fetch-mock": "^4.0.0"
   },
   "scripts": {
@@ -66,6 +68,7 @@
   "devDependencies": {
     "@craco/craco": "^5.6.4",
     "@navikt/fnrvalidator": "^1.1.2",
+    "@types/react-redux": "^7.1.9",
     "craco-less": "^1.17.0",
     "nav-frontend-ikoner-assets": "^2.0.1",
     "nav-frontend-typografi-style": "^1.0.22"

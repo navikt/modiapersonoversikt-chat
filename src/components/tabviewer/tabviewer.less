@@ -2,54 +2,20 @@
   height: calc(100% - 6.6rem);
   width: 100%;
 
-  .inactivetab {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
-    white-space: nowrap;
-  }
-
-  .persontab {
-    display: flex;
+  &__tab {
     height: 100%;
-    iframe {
-      width: calc(100% - 25rem);
-      height: 100%;
+
+    &--inactive {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+      white-space: nowrap;
     }
   }
-
-  .persontab__chat {
-    padding: 1rem;
-  }
-
-  .chatwindow {
-    display: flex;
-    flex-direction: column;
-    height: 100%
-  }
-
-  .chatcontent {
-    margin-top: auto;
-  }
 }
 
-.dashboard {
-  padding-top: 1rem;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.koboks {
-  margin-left: 1rem;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  width: 12rem;
-  display: inline-block;
-  text-align: center;
-}

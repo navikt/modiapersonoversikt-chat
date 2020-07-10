@@ -1,32 +1,32 @@
 import * as React from 'react';
-import {useState} from "react";
 import {TabsPure} from 'nav-frontend-tabs';
 import 'nav-frontend-core';
 import 'nav-frontend-typografi-style';
 import Decorator from './components/decorator/decorator';
 import TabViewer from "./components/tabviewer/tabviewer";
-
-export type PersonTab = { fnr: string}
-export type Tab = 'DASHBOARD' | PersonTab;
-
-export function isPersontab(tab: Tab): tab is PersonTab {
-    return tab !== 'DASHBOARD';
-}
+import {useAppDispatch} from "./redux";
+import {isPersonTab, switchTab, Tab, TabsState, useTabs} from "./redux/tabs";
 
 function Application() {
-    const [tabs, setTabs] = useState<Array<Tab>>(['DASHBOARD']);
-    const [tabIndex, setTabIndex] = useState<number>(0);
+    const dispatch = useAppDispatch();
+    const tabState: TabsState = useTabs();
+    const tabs: Array<Tab> = Object.values<Tab>(tabState.tabs);
+    const activeTab = tabState.active;
+
+    const setTabIndex = (event: React.SyntheticEvent<EventTarget>, index: number) => {
+        dispatch(switchTab(tabs[index].id))
+    };
 
     const tabselector = tabs.map((tab, i) => ({
-        label: isPersontab(tab) ? tab.fnr : 'Dashboard',
-        aktiv: i === tabIndex
+        label: isPersonTab(tab) ? tab.fnr : 'Dashboard',
+        aktiv: tab.id === activeTab
     }));
 
     return (
         <>
             <Decorator/>
-            <TabsPure tabs={tabselector} onChange={(_, index) => setTabIndex(index)} />
-            <TabViewer tabs={tabs} tabIndex={tabIndex} setTabs={setTabs} setTabIndex={setTabIndex} />
+            <TabsPure tabs={tabselector} onChange={setTabIndex}/>
+            <TabViewer />
         </>
     );
 }

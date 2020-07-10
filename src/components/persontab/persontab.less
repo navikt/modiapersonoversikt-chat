@@ -1,0 +1,27 @@
+.persontab {
+  @chatbredde: 35rem;
+
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+  &__persondata {
+    width: calc(100% - @chatbredde);
+    height: 100%;
+  }
+
+  &__chat {
+    width: @chatbredde;
+    padding: 1rem;
+  }
+
+  &__chatwindow {
+    display: flex;
+    flex-direction: column;
+    height: 100%
+  }
+
+  &__chatcontent {
+    margin-top: auto;
+  }
+}
