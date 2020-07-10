@@ -1,0 +1,49 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: modiapersonoversikt-chat
+  namespace: default
+  cluster: prod-fss
+  labels:
+    team: personoversikt
+spec:
+  image: {{image}}
+  port: 8080
+  team: personoversikt
+  liveness:
+    path: /modiapersonoversikt-chat/internal/isAlive
+    initialDelay: 20
+  readiness:
+    path: /modiapersonoversikt-chat/internal/isReady
+    initialDelay: 20
+  prometheus:
+    enabled: true
+    path: /modiapersonoversikt-chat/internal/metrics
+  resources:
+    requests:
+      cpu: 200m
+      memory: 512Mi
+    limits:
+      cpu: 3000m
+      memory: 1024Mi
+  ingresses:
+    - https://app.adeo.no/modiapersonoversikt-chat
+  replicas:
+    min: 2
+    max: 4
+    cpuThresholdPercentage: 50
+  vault:
+    enabled: true
+    paths:
+      - kvPath: /credential/data/prod/isso-rp-user
+        mountPath: /var/run/secrets/nais.io/isso-rp-user
+      - kvPath: /serviceuser/data/prod/srvmodiapersonoversikt
+        mountPath: /var/run/secrets/nais.io/service_user
+  env:
+    # ISSO props
+    - name: VEILARBLOGIN_OPENAM_CLIENT_ID
+      value: "veilarblogin-p"
+    - name: OPENAM_DISCOVERY_URL
+      value: "https://isso.adeo.no/isso/oauth2/.well-known/openid-configuration"
+    - name: VEILARBLOGIN_OPENAM_LOGIN_URL
+      value: "https://app.adeo.no/veilarblogin/api/start"
