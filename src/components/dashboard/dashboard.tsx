@@ -6,11 +6,11 @@ import {useObjectState} from "../../hooks/use-objectstate";
 import './dashboard.less';
 import TemagruppeValg from "../temagruppe-valg/temagruppe-valg";
 import {Innholdstittel} from "nav-frontend-typografi";
+import DashboardFremside from "./dashboard-fremside";
 
 function Dashboard() {
     const liste = useObjectState<GodkjentTemagruppe | undefined>(undefined);
     const dashboard = useDashboardControl();
-
     return (
         <div className="dashboard">
             <div className="dashboard__temagrupper">
@@ -23,7 +23,8 @@ function Dashboard() {
                 }
             </div>
             <div className="dashboard__liste">
-                <DashboardListe temagruppe={liste} dashboard={dashboard}/>
+                <DashboardFremside visibleIf={liste.value === undefined} />
+                <DashboardListe temagruppe={liste} dashboard={dashboard} visibleIf={liste.value !== undefined} />
             </div>
         </div>
     );

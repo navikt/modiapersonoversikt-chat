@@ -1,13 +1,11 @@
 import * as React from 'react';
-import {Systemtittel} from "nav-frontend-typografi";
 import {Flatknapp} from "nav-frontend-knapper";
-import Veilederpanel from 'nav-frontend-veilederpanel';
-import { ReactComponent as Veileder } from './veileder.svg';
 import {ObjectState} from "../../hooks/use-objectstate";
 import {DashboardControl, GodkjentTemagruppe, WSRequest} from "./use-dashboard-control";
 import GridList from "../grid-list/grid-list";
 import {AppDispatch, useAppDispatch} from "../../redux";
 import {openTab, PersonTab, switchTab, TabType} from "../../redux/tabs";
+import visibleIfHOC from "../../hocs/visible-if";
 
 interface Props {
     temagruppe: ObjectState<GodkjentTemagruppe | undefined>;
@@ -28,14 +26,6 @@ function apneChat(dispatch: AppDispatch, id: string) {
 
 function DashboardListe(props: Props) {
     const dispatch = useAppDispatch();
-    if (props.temagruppe.value === undefined) {
-        return (
-            <Veilederpanel fargetema={"info"} svg={<Veileder />}>
-                <Systemtittel>Velg en temagruppe for å se brukere som venter på svar</Systemtittel>
-            </Veilederpanel>
-        );
-    }
-
     const list: Array<WSRequest> = props.temagruppe.value ? props.dashboard.requests[props.temagruppe.value] : []
 
     return (
@@ -68,4 +58,4 @@ function DashboardListe(props: Props) {
     );
 }
 
-export default DashboardListe;
+export default visibleIfHOC(DashboardListe);
