@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/modiapersonoversikt-chat/static/css/main.fba0a932.chunk.css",
+    "main.js": "/modiapersonoversikt-chat/static/js/main.cce777f3.chunk.js",
+    "main.js.map": "/modiapersonoversikt-chat/static/js/main.cce777f3.chunk.js.map",
+    "runtime-main.js": "/modiapersonoversikt-chat/static/js/runtime-main.5cbbf491.js",
+    "runtime-main.js.map": "/modiapersonoversikt-chat/static/js/runtime-main.5cbbf491.js.map",
+    "static/css/2.4fc1c35a.chunk.css": "/modiapersonoversikt-chat/static/css/2.4fc1c35a.chunk.css",
+    "static/js/2.a1b0b141.chunk.js": "/modiapersonoversikt-chat/static/js/2.a1b0b141.chunk.js",
+    "static/js/2.a1b0b141.chunk.js.map": "/modiapersonoversikt-chat/static/js/2.a1b0b141.chunk.js.map",
+    "index.html": "/modiapersonoversikt-chat/index.html",
+    "precache-manifest.d73b151bc3ca727a759f75a71b3da5ba.js": "/modiapersonoversikt-chat/precache-manifest.d73b151bc3ca727a759f75a71b3da5ba.js",
+    "service-worker.js": "/modiapersonoversikt-chat/service-worker.js",
+    "static/css/2.4fc1c35a.chunk.css.map": "/modiapersonoversikt-chat/static/css/2.4fc1c35a.chunk.css.map",
+    "static/css/main.fba0a932.chunk.css.map": "/modiapersonoversikt-chat/static/css/main.fba0a932.chunk.css.map",
+    "static/js/2.a1b0b141.chunk.js.LICENSE.txt": "/modiapersonoversikt-chat/static/js/2.a1b0b141.chunk.js.LICENSE.txt",
+    "static/media/veileder.6b7ed5f2.svg": "/modiapersonoversikt-chat/static/media/veileder.6b7ed5f2.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5cbbf491.js",
+    "static/css/2.4fc1c35a.chunk.css",
+    "static/js/2.a1b0b141.chunk.js",
+    "static/css/main.fba0a932.chunk.css",
+    "static/js/main.cce777f3.chunk.js"
+  ]
+}
