@@ -35,7 +35,7 @@ function TabViewer() {
     const tabState: TabsState = useTabs();
     const tabs: Array<Tab> = Object.values<Tab>(tabState.tabs);
 
-    const tabElements = tabs.map((tab: Tab) => <TabRenderer tab={tab} activeTabId={tabState.active} />);
+    const tabElements = tabs.map((tab: Tab) => <TabRenderer key={tab.id} tab={tab} activeTabId={tabState.active} />);
 
     return (
         <div className="tabviewer">

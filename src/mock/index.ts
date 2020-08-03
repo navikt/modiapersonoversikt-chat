@@ -1,6 +1,8 @@
 import FetchMock, {MiddlewareUtils} from 'yet-another-fetch-mock';
 import {setupWsControlAndMock} from './context-mock';
 import navfaker from "nav-faker";
+import {setupControllWsMock} from "./dashboard-mock";
+import {guid} from "nav-frontend-js-utils";
 
 console.log('=========================='); // tslint:disable-line
 console.log('======== MED MOCK ========'); // tslint:disable-line
@@ -10,27 +12,29 @@ const mock = FetchMock.configure({
         MiddlewareUtils.loggingMiddleware()
     )
 });
+
 setupWsControlAndMock(mock);
+setupControllWsMock(mock);
 
 navfaker.random.arrayElement([])
-const starters = [
+export const starters = [
     'Hei,\njeg har ett lite spørsmål.',
     'God dagen. Kunne jeg stilt ett lite spørsmål?',
     'Skjera!! Kan dere ta kontakt med meg.'
 ];
-const followups = [
+export const followups = [
     'Det jeg lurer på er angående AAP',
     'Hvordan er egentlig greia med dagpenger nå om dagen',
     'Corona er skummelt og jeg lurer på hva jeg skal gjøre.'
 ];
 
-const ekstra = [
+export const ekstra = [
     'Fint og flott. Er det det samme med andre ytelser også?',
     'Hvordan blir dette om jeg også er selvstendig næringsdrivende? Påvirker det noe?',
     'Jeg forstår. Stor fare for at jeg blir permittert i løpet av høsten. Vil det endre noe?'
 ];
 
-const chatContent: any = {};
+export const chatContent: any = {};
 mock.get('/modiapersonoversikt-chat/api/plukk', (req, res, ctx) => {
     const fnr = navfaker.personIdentifikator.fødselsnummer();
     chatContent[fnr] = [
@@ -38,7 +42,7 @@ mock.get('/modiapersonoversikt-chat/api/plukk', (req, res, ctx) => {
         { from: 'user', content: navfaker.random.arrayElement(followups) }
     ];
 
-    return res(ctx.json({ fnr }));
+    return res(ctx.json({ fnr, id: guid() }));
 });
 
 

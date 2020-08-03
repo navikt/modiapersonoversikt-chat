@@ -1,0 +1,30 @@
+@import (reference) '~nav-frontend-core/less/_variabler';
+
+.temagruppevalg {
+  background-color: @white;
+  border-radius: @border-radius-base;
+  border-bottom: 1px solid @navGra20;
+
+  &__radiovalg {
+    input {
+      position: absolute;
+      opacity: 0;
+
+      & + label {
+        display: block;
+        padding: 0.5rem 1rem;
+      }
+      &:checked + label {
+        background-color: @navLysBlaLighten40;
+      }
+    }
+    &:first-child label {
+      border-top-left-radius: @border-radius-base;
+      border-top-right-radius: @border-radius-base;
+    }
+    &:last-child label {
+      border-bottom-left-radius: @border-radius-base;
+      border-bottom-right-radius: @border-radius-base;
+    }
+  }
+}

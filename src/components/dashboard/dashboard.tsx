@@ -1,44 +1,30 @@
 import * as React from 'react';
-import Panel from "nav-frontend-paneler";
-import {Ingress, Undertittel} from "nav-frontend-typografi";
-import {Flatknapp} from "nav-frontend-knapper";
-import {AppDispatch, useAppDispatch} from "../../redux";
-import { openTab, switchTab, PersonTab, TabType } from "../../redux/tabs";
+import {Temagruppe, temagruppeTekst} from "../../utils/temagruppe-utils";
+import {GodkjentTemagruppe, useDashboardControl} from "./use-dashboard-control";
+import DashboardListe from "./dashboard-liste";
+import {useObjectState} from "../../hooks/use-objectstate";
 import './dashboard.less';
-
-function KoBoks(props: { temagruppe: string }) {
-    const dispatch = useAppDispatch();
-
-    return (
-        <Panel className="koboks">
-            <Undertittel className="blokk-xxxs">{props.temagruppe}</Undertittel>
-            <Ingress className="blokk-xxs">{Math.round(Math.random() * 20)} i kø</Ingress>
-            <Flatknapp onClick={apneChat(dispatch)}>Start</Flatknapp>
-        </Panel>
-    );
-}
-
-function apneChat(dispatch: AppDispatch) {
-    return () => {
-        fetch('/modiapersonoversikt-chat/api/plukk')
-            .then(resp => resp.json())
-            .then(json => {
-                const tab: PersonTab = {id: json.fnr, type: TabType.PERSON, fnr: json.fnr, hasChanges: false};
-                dispatch(openTab(tab));
-                dispatch(switchTab(json.fnr));
-            });
-    };
-}
+import TemagruppeValg from "../temagruppe-valg/temagruppe-valg";
+import {Innholdstittel} from "nav-frontend-typografi";
 
 function Dashboard() {
+    const liste = useObjectState<GodkjentTemagruppe | undefined>(undefined);
+    const dashboard = useDashboardControl();
+
     return (
         <div className="dashboard">
-            <KoBoks temagruppe="Arbeid"/>
-            <KoBoks temagruppe="Familie"/>
-            <KoBoks temagruppe="Hjelpemiddel"/>
-            <KoBoks temagruppe="Bil"/>
-            <KoBoks temagruppe="Pensjon"/>
-            <KoBoks temagruppe="Øvrige"/>
+            <div className="dashboard__temagrupper">
+                <TemagruppeValg active={liste} requests={dashboard.requests}/>
+            </div>
+            <div className="dashboard__valgtemagruppe">
+                {liste.value && <Innholdstittel className="blokk-xs">
+                    {liste.value ? temagruppeTekst(liste.value) : 'Ikke påkoblet'}
+                </Innholdstittel>
+                }
+            </div>
+            <div className="dashboard__liste">
+                <DashboardListe temagruppe={liste} dashboard={dashboard}/>
+            </div>
         </div>
     );
 }
