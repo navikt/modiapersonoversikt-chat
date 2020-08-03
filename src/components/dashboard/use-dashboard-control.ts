@@ -1,5 +1,5 @@
 import {useMemo, useState} from "react";
-import {RequestEvent, WSEvent} from "./types";
+import {WSEvent} from "./types";
 import {useOnMount} from "../../hooks/use-onmount";
 import {useWebsocket} from "../../hooks/use-webhook";
 import {Temagruppe} from "../../utils/temagruppe-utils";

@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {Dispatch, SetStateAction} from "react";
-import {Innholdstittel, Normaltekst} from 'nav-frontend-typografi';
-import {Temagruppe, temagruppeTekst} from "../../utils/temagruppe-utils";
+import {Normaltekst} from 'nav-frontend-typografi';
+import {temagruppeTekst} from "../../utils/temagruppe-utils";
 import {GodkjentTemagruppe, WSRequest} from "../dashboard/use-dashboard-control";
 import './temagruppe-valg.less';
 import {ObjectState} from "../../hooks/use-objectstate";

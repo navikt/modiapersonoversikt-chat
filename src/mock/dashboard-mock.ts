@@ -1,6 +1,6 @@
 import FetchMock from 'yet-another-fetch-mock';
 import {Server, WebSocket} from 'mock-websocket';
-import {godkjenteTemagrupper, Temagruppe} from "../utils/temagruppe-utils";
+import {godkjenteTemagrupper} from "../utils/temagruppe-utils";
 import {guid} from "nav-frontend-js-utils";
 import navfaker from "nav-faker";
 import {jittery} from "./utils";

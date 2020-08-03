@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Temagruppe, temagruppeTekst} from "../../utils/temagruppe-utils";
+import {temagruppeTekst} from "../../utils/temagruppe-utils";
 import {GodkjentTemagruppe, useDashboardControl} from "./use-dashboard-control";
 import DashboardListe from "./dashboard-liste";
 import {useObjectState} from "../../hooks/use-objectstate";
